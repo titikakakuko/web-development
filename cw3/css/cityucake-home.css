@@ -1,0 +1,228 @@
+/* cityucake-home.css October 2018 by wyn */
+
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+
+body{
+background-color:#FFE4E1;
+}
+
+/*the cityu's cake logo, title overlaps the image*/
+#logoimage{
+  position:absolute; /* position1 */
+    top: 10px;
+    left:55%;
+  z-index: -1;
+  width:250px;
+}
+
+
+.card-1{
+  box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);/* CSS3 technique box shadow */
+}
+
+
+h1{
+  color: red;
+  font-size:50px;
+  font-family:Comic Sans MS;
+  text-align:center;
+  transform:rotate(-9deg); /* CSS3 technique transform */
+  text-shadow:1px 1px 0 #444;
+
+}
+
+
+.logo{
+
+  width: 60%;
+
+  border-radius: 25px; /* CSS3 technique round corner */
+
+}
+
+.column{
+    float: right;
+    padding: 50px;
+}
+
+
+/*navigation menu, float, dropdown, hover and so on*/
+
+.img-viewlist{
+  position:relative;/* position2 */
+  top:50px;
+  width: 50%;
+}
+
+.img-hover:hover{
+  opacity:0.60
+}
+
+.viewlist{
+    width: 20%;
+    position:relative; /* position3 */
+    display:inline-block;
+}
+
+.viewlist-content{
+  display: none;
+  width:80%;
+  text-align:left;
+  border:2px;
+  white-space:pre-line;
+  float:none;
+  outline:0;
+  cursor:auto;
+  color:#000;
+  background-color:#FFC0CB;
+  position:absolute; /* position4 */
+  min-width:6px;
+  margin:0;
+  padding:2px;
+  z-index:1;
+}
+
+.viewlist:hover .viewlist-content {
+    display: block;
+}
+
+.menu li:hover {
+    background-color: #DB7093;
+    padding: 3px;
+    color: red;
+}
+
+/*video block*/
+.videobox{
+  width: 75%;
+  padding:120px;
+  clear:both;
+  border-radius: 25px; /* CSS3 technique round corner */
+}
+
+video{
+  width: 900px;
+}
+/*the order block*/
+#orderform{
+  width: 400px;
+  margin: auto;
+}
+
+legend{
+  text-align: center;
+  border:2px solid;
+}
+
+.card-2{
+    box-shadow:0 7px 15px 0 rgba(0,0,0,0.25),0 4px 20px 0 rgba(0,0,0,0.21);/* CSS3 technique box shadow */
+}
+
+/*tidy look*/
+.center{
+  margin: auto;
+  text-align: center;
+}
+
+/*table*/
+table{
+  border-spacing:15px;
+  border:25px solid;
+  border-color:#FFE4E1;
+  width: 100%;
+}
+
+
+/*animation*/
+.qcontainer{-webkit-perspective:400;-moz-perspective:400;float:left;width:320px;margin-right:20px;}
+.film{width:100%;height:330px;-webkit-transform-style:preserve-3d;-webkit-transition:1.5s;
+  -moz-transform-style:preserve-3d;-moz-transition:1.5s;}/* CSS3 technique transition */
+.qcontainer:hover .film{-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);}/* CSS3 technique transform */
+.face{position:absolute;/* position5 */
+  -webkit-backface-visibility:hidden;
+  -moz-backface-visibility:hidden;}
+.back{-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);} /* CSS3 technique transform */
+
+/* cake introduction part */
+#salemenu{
+  margin: auto;
+  width: 345px;
+  height: 480px;
+}
+
+
+div.sale {
+    margin:5px;
+    border: 1px solid #ccc;
+    float:none;
+    width: 320px;
+}
+
+div.cakename{
+    padding: 30px;
+    text-align: center;
+    font-family:Comic Sans MS;
+    color:#DB7093;
+    font-size:20px;
+    text-shadow:1px 1px 0 #444;
+}
+
+.saleimg{
+  width:320px;
+  height:244px;
+}
+
+#caption1{
+  font-family:serif;
+  color:brown;
+  font-size:40px;
+text-align: center;
+
+}
+
+#caption2{
+  font-weight: bold;
+  font-size: 25px;
+}
+
+
+
+thead{
+  font-weight: bold;
+}
+
+tfoot{
+  font-weight: bold;
+}
+
+.table-even tbody tr:nth-child(even){
+  background-color:#FFC0CB;
+}
+
+.table-even tbody tr:nth-child(odd){
+  background-color:#FFF1E1;
+}
+
+
+/*the FooterBlock*/
+
+#grad{
+    background-color: #FFE4E1;
+    background-image: linear-gradient(#FFE4E1,PINK);
+}/* the CSS3 techniques used(gradient) */
+
+.unbr{
+
+  width: 400px;
+  line-height: 20px;
+}
+
+.unbr a{
+  margin:0 8px;
+  white-space: nowrap;
+}
+
+.unbr a:hover{
+  background-color: #DB7093;
+  padding: 1px;
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>cityucake-print</title>
+    <link rel="stylesheet" href="../css/cityucake-print.css">
+
+
+    <style type="text/css" media="print">
+/*make navigation and footer disppear*/
+    .hidden{
+      display: none;
+    }
+
+/*the logo part*/
+    #logoimage{
+      position:absolute;/* position1 */
+        top: 10px;
+        left:45%;
+      z-index: -1;
+      width:70px;
+    }
+
+
+    h1{
+      color:black;
+      font-size:12px;
+      font-family:Comic Sans MS;
+      text-align:center;
+      transform:rotate(-9deg);/* CSS3 technique transform */
+      text-shadow:1px 1px 0 #444;
+
+    }
+
+    .card-1{
+        box-shadow:0 0px 00px 0 rgba(0,0,0,0),0 0px 0px 0 rgba(0,0,0,0)
+  }
+
+
+
+    .logo{
+
+      width: 100%;
+
+    }
+    .column{
+        float:none;
+        padding: 0px;
+    }
+
+    /* tidy look */
+    .shorter{
+      width: 40%;
+    }
+
+
+/*ensmall the invoice*/
+    #invoice{
+      width: 150px;
+    }
+
+/*the table*/
+
+    .table-odd tbody tr:nth-child(odd){
+      background-color:#A9A9A9;
+    }
+    .table-odd tbody tr:nth-child(even){
+      background-color:#DCDCDC;
+    }
+
+    </style>
+
+    <script type="text/javascript">
+    window.onload = get;
+
+      function get(){
+    document.querySelector("tbody").innerHTML = localStorage.getItem("Iterms");
+      document.querySelector("tfoot").innerHTML = localStorage.getItem("Total");
+    }
+
+    var str=location.search.substr(1);
+    function getValue(s, n) {
+        var t=str.split("&");
+        for (var i=0; i<t.length; i++) {
+          if (t[i].split("=")[0] == n) {
+            return t[i].split("=")[1];
+          }
+        }
+        return null;
+      }
+
+    </script>
+  </head>
+  <body>
+
+    <!--BannerBlock-->
+    <div class="column logo card-1">
+        <img id="logoimage" src="../pic/logo.png" alt="Cityu's Cake">
+        <br>
+        <h1>CITYU'S CAKE</h1>
+        <div class="hidden">
+        <br>
+        <br>
+        <br>
+      </div>
+      </div>
+
+    <!--the navigation menu-->
+        <div class="hidden viewlist column">
+        <img class="img-viewlist img-hover" src="../pic/viewlist.png" alt="viewlist">
+        <br>
+        <div class="viewlist-content card-1 menu">
+          <ul>
+        <li><h3><a href="cityucake-home.html">home</a></h3></li>
+
+        <li><h3><a href="cityucake-order.html">order</a></h3></li>
+
+        <li><h3><a href="cityucake-about-us.html">about us</a></h3></li>
+
+        <li><h3><a href="#">terms of use</a></h3></li>
+      </ul>
+    </div>
+    </div>
+    <div class="hidden">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+        <br>
+
+    <hr class="hidden">
+<!--print invoice block-->
+<div>
+  <form id="orderform" action="cityucake-home.html" method="get">
+  <fieldset  id="invoice" class="center">
+    <legend></legend>
+  <p id="p1">Order number : 8888 8888</p>
+  <p id="p2">pick up date : DD/MM/YYYY</p>
+    <input type="radio" name="delivery" value="delivery">Delivery
+   <input type="radio" name="delivery" value="pickup" checked=checked>Pick up
+   <br>
+   <div class="space">
+   <table class="table-odd">
+     <thead>
+       <tr>
+   <td>Cake Name</td> <td>Qty</td> <td>Price</td>
+       </tr>
+     </thead>
+
+     <tbody></tbody>
+
+   <tfoot>
+     <tr>
+       <td>Total </td> <td>0</td> <td>0</td>
+     </tr>
+   </tfoot>
+   </table>
+ </div>
+ <input class="hidden" type="submit" name="cancle" value="Cancle" onclick="localStorage.clear();">
+</fieldset>
+</form>
+</div>
+<hr class="shorter">
+<script type="text/javascript">
+document.getElementById("p1").innerHTML = "order number : " + getValue(str, "telNo");
+document.getElementById("p2").innerHTML = "pick up date : " + getValue(str, "pickUpDate");
+document.forms.orderform.delivery.value = getValue(str, "delivery");
+</script>
+
+
+<!--FooterBlock-->
+    <footer id="grad" class="hidden">️️
+      <div class="center">
+      ©CityU 2017 sources of images and text from Wikipedia & countesy of all-free-download. com
+    </div>
+    <br>
+    <div class="unbr center">
+    <a href="cityucake-home.html">home</a>
+    <a href="cityucake-order.html">order</a>
+    <a href="cityucake-about-us.html">about us</a>
+    <a href="#">terms of use</a>
+  </div>
+  </footer>
+
+</body>
+</html>

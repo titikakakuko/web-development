@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>cityucake-order</title>
+    <link rel="stylesheet" href="../css/cityu-order.css">
+    <script type="text/javascript">
+    var str=location.search.substr(1);
+    function getValue(s, n) {
+        var t=str.split("&");
+        for (var i=0; i<t.length; i++) {
+          if (t[i].split("=")[0] == n) {
+            return t[i].split("=")[1];
+          }
+        }
+        return null;
+      }
+
+</script>
+  </head>
+  <body>
+
+    <div id="errblock"></div>
+
+    <!--BannerBlock-->
+    <div id="body">
+      <div onclick="hide();">
+    <div class="column logo card-1">
+        <img id="logoimage" src="../pic/logo.png" alt="Cityu's Cake">
+        <br>
+        <h1>CITYU'S CAKE</h1>
+        <br>
+        <br>
+        <br>
+      </div>
+
+    <!--the navigation menu-->
+        <div class="viewlist column">
+        <img class="img-viewlist img-hover" src="../pic/viewlist.png" alt="viewlist">
+        <br>
+        <div class="viewlist-content card-1 menu">
+          <ul>
+        <li><h3><a href="cityucake-home.html">home</a></h3></li>
+
+        <li><h3><a href="cityucake-order.html">order</a></h3></li>
+
+        <li><h3><a href="cityucake-about-us.html">about us</a></h3></li>
+
+        <li><h3><a href="#">terms of use</a></h3></li>
+      </ul>
+    </div>
+    </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <hr>
+
+
+<!--OrderBlock,the same information as homepage-->
+    <form  id="orderform" action="cityucake-order.html" method="get" target="_blank">
+    <fieldset class="card-2">
+    <legend id="info-legend">Order Information</legend>
+    <div class="center">
+    <label>Tel No:</label>
+    <br>
+    <input type="number" name="telNo" value="88888888"  onchange="changenumber();">
+    <br>
+    <br>
+    <label>Pick up date:</label>
+    <br>
+    <input type="text" name="pickUpDate" value="DD-MM-YYYY"  onchange="changenumber();">
+    <br>
+    <br>
+    <label>Delivery</label>
+    <input type="radio" name="delivery" value="delivery"  onchange="changenumber();">
+    <label>Pick up</label>
+   <input type="radio" name="delivery" value="pickup" checked=checked onchange="changenumber();">
+  </div>
+  <br>
+  </fieldset>
+</form>
+  <br>
+<hr>
+<br>
+<script type="text/javascript">
+document.forms.orderform.telNo.value = getValue(str, "telNo");
+document.forms.orderform.pickUpDate.value = getValue(str, "pickUpDate");
+document.forms.orderform.delivery.value = getValue(str, "delivery");
+
+</script>
+
+<!--MenuBlock,cakes on sale-->
+
+<script type="text/javascript" >
+
+var cake = initMenu();
+function initMenu() {
+  return [
+    {"description":"Buccellator",
+      "nutrition":[
+        {"type":"Carbohydrate", "percentage":20},
+        {"type":"Protein", "percentage":7},
+        {"type":"Fat", "percentage":25},
+        {"type":"Cholesterol", "percentage":0},
+      ],
+      "imagefile":"Buccellator.jpg",
+      "price":128
+    },
+    {"description":"Strawberry",
+      "nutrition":[
+        {"type":"Carbohydrate", "percentage":15},
+        {"type":"Protein", "percentage":10},
+        {"type":"Fat", "percentage":30},
+        {"type":"Cholesterol", "percentage":20},
+      ],
+      "imagefile":"Strawberry.jpg",
+      "price":233
+    },
+    {"description":"French Cruller",
+      "nutrition":[
+        {"type":"Carbohydrate", "percentage":40},
+        {"type":"Protein", "percentage":5},
+        {"type":"Fat", "percentage":25},
+        {"type":"Cholesterol", "percentage":10},
+      ],
+      "imagefile":"FrenchCruller.jpg",
+      "price":25
+    },
+    {"description":"Pound Layer",
+      "nutrition":[
+        {"type":"Carbohydrate", "percentage":25},
+        {"type":"Protein", "percentage":10},
+        {"type":"Fat", "percentage":30},
+        {"type":"Cholesterol", "percentage":5},
+      ],
+      "imagefile":"PoundLayer.jpg",
+      "price":215
+    },
+  ]
+  }
+
+//test whether the input is a number
+  function validate(obj){
+        var reg = /^[0-9]*$/;
+        return reg.test(obj);
+  };
+
+//sum for the total calculate
+ var sum = parseInt(0);
+ var num = parseInt(0);
+//for the cake order
+ pic = function (i){
+  var cakename = cake[i].description;
+  var number = prompt("Please enter the number you want","1");
+  if(validate(number)){
+
+      //function addRow(){
+      var tableRef = document.getElementById('list_table').getElementsByTagName('tbody')[0];
+
+      // Insert a row in the table at the last row
+      var newRow = tableRef.insertRow(tableRef.rows.length);
+
+      // Insert a cell in the row at index 0
+      var insertTd = newRow.insertCell(0);
+      insertTd.innerHTML = cakename;
+
+      insertTd = newRow.insertCell(1);
+      insertTd.innerHTML = number;
+
+      for (var i = 0; i < cake.length; i++) {
+        if (cakename == cake[i].description) {
+          price = parseInt(cake[i].price * parseInt(number));
+        }
+      }
+
+      insertTd = newRow.insertCell(2);
+      insertTd.innerHTML = price;
+      //calculate the Total
+      sum += parseInt(number);
+      document.getElementById ("qty").innerHTML = sum;
+     //calculate the money
+     num += parseInt(price);
+     document.getElementById ("price").innerHTML = num;
+//};
+    }
+
+else{
+  alert('Your input is wrong! Please enter again.');
+}
+
+}
+
+
+</script>
+
+
+
+<div id="salemenu">
+  <h4>Cakes on Sale!</h4>
+
+
+  <div class="sale card-1">
+    <img id="frenchcruller" onclick='pic(2);' class="saleimg" src="../pic/frenchcruller.jpg" alt="frenchcruller" title="French Cruller">
+    <div class="cakename">frenchcruller</div>
+    </div>
+
+    <div class="sale card-1">
+    <img id="strawberry" onclick='pic(1);' class="saleimg" src="../pic/strawberry.jpg" alt="strawberry" title="Strawberry">
+    <div class="cakename">strawberry</div>
+    </div>
+
+    <div class="sale card-1">
+    <img id="poundlayer" onclick='pic(3);' class="saleimg" src="../pic/poundlayer.jpg" alt="poundlayer" title="Pound Layer">
+    <div class="cakename">poundlayer</div>
+  </div>
+
+
+
+  <div class="sale card-1">
+    <img id="buccellator" onclick='pic(0);' class="saleimg" src="../pic/buccellator.jpg" alt="Buccellator" title="Buccellator">
+  <div class="cakename">buccellator</div>
+    </div>
+
+
+</div>
+  <br>
+  <hr>
+
+<!--OrderedIterms-->
+<h2 class="center">Ordered Iterms</h2>
+<form id="itermform" class="space" action="cityucake-print.html" method="get">
+
+<fieldset class="card-2 space">
+
+  <legend id="legend-2">order number : 8888 8888</legend>
+  <div class="center hide">
+  <label>Tel No:</label>
+  <br>
+  <input type="number" name="telNo" value="88888888">
+  <br>
+  <br>
+  <label>Pick up date:</label>
+  <br>
+  <input type="text" name="pickUpDate" value="DD-MM-YYYY">
+  <br>
+  <br>
+  <label>Delivery</label>
+  <input type="radio" name="delivery" value="delivery" >
+  <label>Pick up</label>
+ <input type="radio" name="delivery" value="pickup" checked=checked>
+</div>
+  <div class="space">
+  <table class="table-odd" id="list_table">
+    <thead>
+      <tr>
+  <td>Cake Name</td> <td>Qty</td> <td>Price</td>
+      </tr>
+    </thead>
+
+    <tbody></tbody>
+
+
+  <tfoot>
+    <tr>
+      <td>Total </td> <td id="qty">0</td> <td id="price">0</td>
+    </tr>
+  </tfoot>
+  </table>
+</div>
+</div>
+<div class="center space">
+   <input type="submit" name="print" value="print invoice" onclick="return checkerr();">
+
+ </div>
+
+     <div onclick="hide();">
+   </fieldset>
+</form>
+
+<script type="text/javascript">
+//initial ordernumber
+document.getElementById("legend-2").innerHTML = "order number : " + getValue(str, "telNo");
+//change the order number according to last form
+function changenumber()
+{
+var x = document.forms.orderform.telNo.value;
+document.forms.itermform.telNo.value = x;
+document.getElementById("legend-2").innerHTML = "order number : " + x;
+
+var y = document.forms.orderform.pickUpDate.value;
+document.forms.itermform.pickUpDate.value = y;
+
+var z = document.forms.orderform.delivery.value;
+document.forms.itermform.delivery.value = z;
+
+}
+
+
+//check errors
+
+    checkerr = function(){
+   var x = document.forms.orderform.telNo.value;
+    var y = document.forms.orderform.pickUpDate.value;
+    if(x == "" || x == "^[ ]+$" || isNaN(x) || y == "" || y == "^[ ]+$"){
+      if (x == "" || x == "^[ ]+$" || isNaN(x)){
+      document.getElementById("errblock").innerHTML += "<p>Please enter the correct phone number</p>";
+      document.forms.orderform.telNo.focus();
+    };
+    if (y == "" || y == "^[ ]+$"){
+    document.getElementById("errblock").innerHTML += "<p>Please input the correct pickup date</p>";
+    document.forms.orderform.pickUpDate.focus();
+  };
+    document.getElementById("errblock").style.display = "block";
+    document.getElementById("body").style.opacity = "0.5";
+    return false;
+ }
+else
+{
+  //save the body rows of the Order table to local storage
+      var iterms, total;
+      var storage = window.localStorage;
+
+      iterms = document.querySelector("tbody").innerHTML;
+      total = document.querySelector("tfoot").innerHTML;
+      storage.setItem("Iterms",iterms);
+      storage.setItem("Total",total);
+      return true;
+}
+}
+// clicking  anywhere  on  the  page  the  error  block  will  hide  again
+
+
+    function hide(){
+    document.getElementById("errblock").style.display = "none";
+    document.getElementById("body").style.opacity = "1";
+    document.getElementById("errblock").innerHTML = "";
+  }
+
+
+
+</script>
+
+  <br>
+  <hr>
+
+  <!--FooterBlock-->
+      <footer id="grad">️️
+        <div class="center">
+        ©CityU 2017 sources of images and text from Wikipedia & countesy of all-free-download. com
+      </div>
+      <br>
+      <div class="unbr center">
+      <a href="cityucake-home.html">home</a>
+      <a href="cityucake-order.html">order</a>
+      <a href="cityucake-about-us.html">about us</a>
+      <a href="#">terms of use</a>
+    </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>cityu-home</title>
+    <link rel="stylesheet" href="../css/cityucake-home.css">
+  </head>
+  <body>
+<!--BannerBlock-->
+<div class="column logo card-1">
+    <img id="logoimage" src="../pic/logo.png" alt="Cityu's Cake">
+    <br>
+    <h1>CITYU'S CAKE</h1>
+    <br>
+    <br>
+    <br>
+  </div>
+
+<!--the navigation menu-->
+    <div class="viewlist column">
+    <img class="img-viewlist img-hover" src="../pic/viewlist.png" alt="viewlist">
+    <br>
+    <div class="viewlist-content card-1 menu">
+      <ul>
+    <li><h3><a href="cityucake-home.html">home</a></h3></li>
+
+    <li><h3><a href="cityucake-order.html">order</a></h3></li>
+
+    <li><h3><a href="cityucake-about-us.html">about us</a></h3></li>
+
+    <li><h3><a href="#">terms of use</a></h3></li>
+  </ul>
+</div>
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<hr>
+
+<!--video block-->
+<br>
+<br>
+  <div class="card-1 videobox center">
+    <video  id="myvideo" autoplay>
+      <source src="http://courses.cs.cityu.edu.hk/cs2204/chocolate.mp4 " type="video/mp4">
+      <source src="http://courses.cs.cityu.edu.hk/cs2204/chocolate.ogg " type="video/ogg">
+
+      <source src="http://courses.cs.cityu.edu.hk/cs2204/cakemaking-s.mp4 " type="video/mp4">
+      <source src="http://courses.cs.cityu.edu.hk/cs2204/cakemaking-s.ogg " type="video/ogg">
+    </video>
+</div>
+
+<script language="javascript">
+var videos = ['http://courses.cs.cityu.edu.hk/cs2204/chocolate.mp4','http://courses.cs.cityu.edu.hk/cs2204/cakemaking-s.mp4 '];
+
+var src = 0, intTime = setTimeout(interval,5000);
+var video = document.getElementById("myvideo");
+video.src = videos[0];
+document.querySelector("#myvideo").addEventListener("ended", nextVideo, false);
+
+function nextVideo() {
+src = 1 - src;
+video.src = videos[src];
+}
+function interval(){
+  video.play();
+  clearTimeout(intTime);
+  setTimeout(interval, 5000);
+}
+
+</script>
+<br>
+<br>
+<br>
+<hr>
+<br>
+
+<!--OrderBlock-->
+    <form  id="orderform"  action="cityucake-order.html" method="get" target="_blank">
+    <fieldset class="card-2">
+    <legend>Order Information</legend>
+    <div class="center">
+    <label>Tel No:</label>
+    <br>
+    <input type="number" name="telNo" value="88888888">
+    <br>
+    <br>
+    <label>Pick up date:</label>
+    <br>
+    <input type="text" name="pickUpDate" value="DD-MM-YYYY">
+<br><br>
+    <label>Delivery</label>
+    <input type="radio" name="delivery" value="delivery" >
+    <label>Pick up</label>
+   <input type="radio" name="delivery" value="pickup" checked=checked>
+   <br>
+   <br>
+    <input type="submit" value="Submit">
+    <input type="reset" name="cancle" value="Cancle">
+  </div>
+  <br>
+  </fieldset>
+</form>
+  <br>
+<hr>
+
+<!--CakesBlock-->
+<!--table in table,two big table,eight small table-->
+
+<script type="text/javascript" src="../js/cakemenu.js">
+</script>
+
+  <div id="salemenu">
+  <p id="caption1">Cake Introduction</p>
+
+
+<div class="qcontainer">
+  <div class="film">
+  <div class="sale card-1 face front">
+
+  <img class="saleimg" src="../pic/strawberry.jpg" id="adBanner" alt="strawberry">
+  <div class="cakename" id="cakename">strawberry</div>
+</div>
+<div class="face back">
+  <table class="table-even">
+    <caption id="caption2">nutrition <br> imformation</caption>
+    <thead>
+      <tr>
+        <td>Amount per 100g</td> <td> </td>
+      </tr>
+  </thead>
+
+  <tbody>
+
+    <tr>
+      <td>Carbohydrate</td><td id="tang">20</td>
+    </tr>
+    <tr>
+      <td>Protein </td> <td id="dan">7</td>
+    </tr>
+    <tr>
+      <td>Fat</td> <td id="zhi">25</td>
+    </tr>
+    <tr>
+      <td>Cholesterol </td> <td id="gu">0</td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td>Total may not add to 100%</td> <td id="total">52</td>
+    </tr>
+  </tfoot>
+
+</table>
+</div>
+</div>
+</div>
+
+  </div>
+
+<br>
+<hr>
+
+<!--FooterBlock-->
+    <footer id="grad">️️
+      <div class="center">
+      ©CityU 2017 sources of images and text from Wikipedia & countesy of all-free-download. com
+    </div>
+    <br>
+    <div class="unbr center">
+    <a href="cityucake-home.html">home</a>
+    <a href="cityucake-order.html">order</a>
+    <a href="cityucake-about-us.html">about us</a>
+    <a href="#">terms of use</a>
+  </div>
+  </footer>
+
+  </body>
+</html>
